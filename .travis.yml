@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- node
+deploy:
+  provider: npm
+  email: 1043075409@qq.com
+  skip_cleanup: true
+  api_key:
+    secure: 
+  on:
+    tags: true
+
