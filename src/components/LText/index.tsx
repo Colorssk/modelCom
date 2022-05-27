@@ -1,8 +1,7 @@
-import React from 'react';
-
+import './index.less';
 export default function LText(props: any) {
   return (
-    <div>
+    <div className="LText-container">
         {props.children}
     </div>
   );

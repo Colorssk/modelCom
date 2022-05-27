@@ -2,11 +2,27 @@
   "name": "container",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.umd.min.js",
+  "module": "dist/index.esm.min.js",
+  "browser": "dist/index.umd.min.js",
+  "types": "lib/index.d.ts",
   "dependencies": {
     "core-js": "^3.6.5",
     "lodash-es": "^4.17.20"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/plugin-external-helpers": "^7.16.7",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-decorators": "^7.17.9",
+    "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
+    "@babel/plugin-transform-react-jsx": "^7.17.3",
+    "@babel/plugin-transform-runtime": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@rollup/plugin-image": "^2.1.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -14,14 +30,34 @@
     "@types/node": "^16.11.33",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.3",
+    "cssnano": "^5.1.7",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "less": "^4.1.2",
+    "postcss": "^8.4.13",
+    "postcss-nested": "^5.0.6",
+    "postcss-simple-vars": "^6.0.3",
+    "prettier": "^2.6.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
+    "rollup": "^2.73.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-dts": "^4.2.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.2",
     "typescript": "^4.6.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env BABEL_ENV=rollup rollup -c script/rollup.config.js",
+    "build-prod": "cross-env NODE_ENV=production rollup -c script/rollup.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -41,6 +77,5 @@
   },
   "peerDependencies": {
     "react": "^3.0.0"
-  },
-  "types": "dist/index.d.ts"
+  }
 }

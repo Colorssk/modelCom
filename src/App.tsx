@@ -1,6 +1,5 @@
-import React from 'react';
-import LText from './components/LText'
-import './App.css';
+import { LText } from "./components";
+import "./App.css";
 
 function App() {
   return (
