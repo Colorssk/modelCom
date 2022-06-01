@@ -1,4 +1,11 @@
 language: node_js
 node_js:
 - 17
+before_script:
+  - npm install --global rollup
+cache:
+  npm: false
+install:
+  - yarn
+  - yarn build-prod
 
