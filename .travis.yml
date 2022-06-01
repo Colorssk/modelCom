@@ -4,6 +4,7 @@ node_js:
 before_script:
   - npm install --global rollup
   - npm install --global cross-env
+
 cache:
   npm: false
 install:
