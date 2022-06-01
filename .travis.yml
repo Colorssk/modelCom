@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-- 17
+- 14.18.1
 before_script:
-  - npm install --global rollup
-  - npm install --global cross-env
+  - npm i -g rollup
+  - npm i -g cross-env
 
 cache:
   npm: false

@@ -1,6 +1,6 @@
 import styleInject from '../../node_modules/style-inject/dist/style-inject.es.js';
 
-var css_248z$1 = ".LText-container{color:red}";
+var css_248z$1 = ".LText-container{background:var(--color-background);color:var(--color-text-primary);font-size:var(--font-size-xs)}";
 styleInject(css_248z$1);
 
 declare function LText(props: any): JSX.Element;
