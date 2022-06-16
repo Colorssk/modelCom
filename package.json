@@ -9,7 +9,17 @@
   "dependencies": {
     "@types/lodash-es": "^4.17.6",
     "core-js": "^3.6.5",
-    "lodash-es": "^4.17.20"
+    "gatsby-plugin-sass": "3.0.0",
+    "lodash-es": "^4.17.20",
+    "node-sass": "5.0.0"
+  },
+  "resolutions": {
+    "node-sass": "5.0.0",
+    "**/node-sass": "5.0.0",
+    "**/sharp": "0.29.2",
+    "sass-loader": "10.0.5",
+    "**/sass-loader": "10.0.5",
+    "remark-mdx": "1.6.22"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
@@ -23,6 +33,9 @@
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@emotion/core": "~10.0.0",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "~10.0.0",
     "@rollup/plugin-image": "^2.1.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
@@ -31,7 +44,9 @@
     "@types/node": "^16.11.33",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.3",
+    "babel-preset-gatsby": "0.12.3",
     "cssnano": "^5.1.7",
+    "docz": "^2.0.0-rc.56",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -60,7 +75,10 @@
     "build": "cross-env BABEL_ENV=rollup rollup -c script/rollup.config.js",
     "build-prod": "cross-env NODE_ENV=production rollup -c script/rollup.config.js",
     "test": "echo \"temporary do nothing\"",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
   },
   "keywords": [
     "Component",
