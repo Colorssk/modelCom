@@ -1,6 +1,6 @@
 import './index.less';
 import mergeTheme from './theme'
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from '../../theme/themeProvider'
 export default function LText(props: any) {
   const {currentTheme} = useContext(ThemeContext)
