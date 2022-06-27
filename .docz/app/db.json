@@ -6,7 +6,7 @@
       "快速上手",
       "业务组件"
     ],
-    "version": "0.1.0",
+    "version": "0.1.2",
     "repository": null,
     "native": false,
     "themeConfig": {},
@@ -61,19 +61,6 @@
       "value": []
     },
     {
-      "key": "src/theme/themeProvider.tsx",
-      "value": [
-        {
-          "tags": {},
-          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
-          "description": "",
-          "displayName": "themeProvider",
-          "methods": [],
-          "props": {}
-        }
-      ]
-    },
-    {
       "key": "src/components/index.tsx",
       "value": [
         {
@@ -91,8 +78,57 @@
           "displayName": "ThemeProvider",
           "methods": [],
           "props": {}
+        },
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/components/index.tsx",
+          "description": "",
+          "displayName": "setAttribute",
+          "methods": [],
+          "props": {}
+        },
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/components/index.tsx",
+          "description": "",
+          "displayName": "requireAll",
+          "methods": [],
+          "props": {}
         }
       ]
+    },
+    {
+      "key": "src/theme/themeProvider.tsx",
+      "value": [
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
+          "description": "",
+          "displayName": "setAttribute",
+          "methods": [],
+          "props": {}
+        },
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
+          "description": "",
+          "displayName": "requireAll",
+          "methods": [],
+          "props": {}
+        },
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
+          "description": "",
+          "displayName": "themeProvider",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/components/assets/index.tsx",
+      "value": []
     },
     {
       "key": "src/components/LButton/index.tsx",

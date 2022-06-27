@@ -68,7 +68,7 @@ const config = {
         title: '组件库左上角标题',
         description: 'My awesome app using docz',
         host: 'localhost',
-        port: 3002,
+        port: 3001,
         p: 3000,
         separator: '-',
         paths: {
