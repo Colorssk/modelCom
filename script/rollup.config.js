@@ -3,6 +3,7 @@ import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import replace from "rollup-plugin-replace";
 import postcss from "rollup-plugin-postcss";
+import autoprefixer from 'autoprefixer'
 // 可以处理组件中import图片的方式，将图片转换成base64格式，但会增加打包体积，适用于小图标
 import image from "@rollup/plugin-image";
 import { terser } from "rollup-plugin-terser";
@@ -29,11 +30,15 @@ const config = [
       {
         file: `dist/index.umd${env === "production" ? ".min" : ""}.js`,
         format: "umd",
-        name: "wcpnts",
+        name: "ccUi",
       },
       {
         file: `dist/index.esm${env === "production" ? ".min" : ""}.js`,
         format: "esm",
+      },
+      {
+        file: `lib/index${env === 'production' ? '.min' : ''}.js`,
+        format: 'cjs',
       },
     ],
     // 注入全局变量
@@ -53,6 +58,7 @@ const config = [
       image(),
       postcss({
         plugins: [
+          autoprefixer(),
           simplevars(),
           nested(),
           // cssnext({ warnForDuplicates: false, }),

@@ -28,4 +28,24 @@ const ThemeProvider: React.FC<providerInterface> = ({ children }) => {
   )
 }
 
+export const themeTypes = [
+  'light',
+  'dark'
+]
+
+
+export const setAttribute = function (themeTarget) {
+  const themeCache = themeTarget || 'dark';
+  const root = document.getElementById('root');
+  if (root && themeCache) {
+    console.log('change', themeCache)
+      root.setAttribute('data-theme', themeCache)
+  } else {
+    console.log('default')
+      //default theme
+      root.setAttribute('data-theme', 'dark')
+  }
+}
+export const requireAll = requireContext => requireContext.keys().map(requireContext)
+
 export default ThemeProvider;

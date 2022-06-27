@@ -61,6 +61,19 @@
       "value": []
     },
     {
+      "key": "src/theme/themeProvider.tsx",
+      "value": [
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
+          "description": "",
+          "displayName": "themeProvider",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
       "key": "src/components/index.tsx",
       "value": [
         {
@@ -70,17 +83,12 @@
           "displayName": "components",
           "methods": [],
           "props": {}
-        }
-      ]
-    },
-    {
-      "key": "src/theme/themeProvider.tsx",
-      "value": [
+        },
         {
           "tags": {},
-          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/components/index.tsx",
           "description": "",
-          "displayName": "themeProvider",
+          "displayName": "ThemeProvider",
           "methods": [],
           "props": {}
         }
