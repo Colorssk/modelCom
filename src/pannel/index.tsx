@@ -32,7 +32,7 @@ function Pannel() {
     setList([
       {
         key: 'LText',
-        component: () => {return (<LText>{currentTheme && <img src={images[currentTheme][0].img} alt={images[currentTheme][0].path}></img>}xxxxxxxxxxxxxxxxx{currentTheme}</LText>)}
+        component: () => {return (<LText>{currentTheme && <img src={images[currentTheme]?.demo.img} alt={images[currentTheme]?.demo.path}></img>}xxxxxxxxxxxxxxxxx{currentTheme}</LText>)}
       }, {
         key: 'LButton',
         component: () => {return (<LButton>按钮</LButton>)}
