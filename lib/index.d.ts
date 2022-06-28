@@ -24,5 +24,6 @@ interface providerInterface {
 declare const ThemeProvider: React.FC<providerInterface>;
 declare const themeTypes: string[];
 declare const setAttribute: (themeTarget: any) => void;
+declare const requireAll: (requireContext: any) => any;
 
-export { LButton, LText, ThemeContext, ThemeProvider, setAttribute, themeTypes };
+export { LButton, LText, ThemeContext, ThemeProvider, requireAll, setAttribute, themeTypes };

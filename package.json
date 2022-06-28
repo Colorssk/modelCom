@@ -2,7 +2,6 @@
   "name": "container",
   "version": "0.1.2",
   "main": "lib/index.min.js",
-  "private": true,
   "module": "dist/index.esm.min.js",
   "browser": "dist/index.umd.min.js",
   "types": "lib/index.d.ts",

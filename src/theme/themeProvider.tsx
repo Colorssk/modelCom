@@ -9,7 +9,7 @@ interface providerInterface {
   children: ReactNode;
 }
 const ThemeProvider: React.FC<providerInterface> = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState<string>('');
+  const [currentTheme, setCurrentTheme] = useState<string>('dark');
   const [currentThemesStyle, setCurrentThemesStyle] = useState<CommonComponentProps>();
   const [configAllStyle, setConfigAllStyle] = useState<compontListInterface>();
   const handleTheme = (theme: string, styleConfig: CommonComponentProps) => {
