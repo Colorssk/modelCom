@@ -61,6 +61,19 @@
       "value": []
     },
     {
+      "key": "template/index.tsx",
+      "value": [
+        {
+          "tags": {},
+          "filePath": "template/index.tsx",
+          "description": "",
+          "displayName": "template",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
       "key": "src/components/index.tsx",
       "value": [
         {
@@ -98,6 +111,10 @@
       ]
     },
     {
+      "key": "template/theme/index.ts",
+      "value": []
+    },
+    {
       "key": "src/theme/themeProvider.tsx",
       "value": [
         {
@@ -127,10 +144,6 @@
       ]
     },
     {
-      "key": "src/components/assets/index.tsx",
-      "value": []
-    },
-    {
       "key": "src/components/LButton/index.tsx",
       "value": [
         {
@@ -142,6 +155,10 @@
           "props": {}
         }
       ]
+    },
+    {
+      "key": "src/components/assets/index.tsx",
+      "value": []
     },
     {
       "key": "src/components/LText/index.tsx",
