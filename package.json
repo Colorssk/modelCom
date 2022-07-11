@@ -5,6 +5,7 @@
   "module": "dist/index.esm.min.js",
   "browser": "dist/index.umd.min.js",
   "types": "lib/index.d.ts",
+  "private": true,
   "dependencies": {
     "@types/lodash-es": "^4.17.6",
     "core-js": "^3.6.5",
