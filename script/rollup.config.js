@@ -81,7 +81,7 @@ const config = [
         namedExports: {
           // Without this mapping the transformed import import {jsx as _jsx} from 'react/jsx-runtime' will fail.
           "react/jsx-runtime": ["jsx", "jsxs"],
-          "node_modules/react-is/index.js": ["isFragment"],
+          "node_modules/react-is/index.js": ["isFragment", "isMemo"],
           "node_modules/react/index.js": [
             "Fragment",
             "cloneElement",
