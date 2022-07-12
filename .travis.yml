@@ -20,5 +20,5 @@ deploy:
   api_key:
     secure: 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
   on:
-    tags: true
+    all_branches: true
 
