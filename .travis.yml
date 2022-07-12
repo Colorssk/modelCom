@@ -18,7 +18,7 @@ deploy:
   email: 10430756409@qq.com
   skip_cleanup: true
   api_key:
-    secure: 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
+    secure: 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
   on:
     all_branches: true
 
