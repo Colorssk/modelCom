@@ -1,6 +1,9 @@
 language: node_js
 node_js:
 - 14.18.1
+branches:                   
+  only:
+  - feature/ss-ui-from-master
 before_install:
  - npm i -g yarn
 cache:
