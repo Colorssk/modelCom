@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState } from 'react';
+import React, { createContext, ReactNode, useState, useEffect } from 'react';
 import { compontListInterface, CommonComponentProps } from './themeConfig';
 interface contextprops{
   [propName: string]: any
@@ -16,6 +16,9 @@ const ThemeProvider: React.FC<providerInterface> = ({ children }) => {
     setCurrentTheme(theme);
     setCurrentThemesStyle(styleConfig);
   }
+  useEffect(()=>{
+    setAttribute('dark');
+  }, [])
   return (
     <ThemeContext.Provider value={{
       currentTheme,
@@ -39,11 +42,22 @@ export const setAttribute = function (themeTarget) {
   const root = document.getElementById('root');
   if (root && themeCache) {
     console.log('change', themeCache)
-      root.setAttribute('data-theme', themeCache)
+    root.setAttribute('data-theme', themeCache)
   } else {
     console.log('default')
+    //default theme
+    root.setAttribute('data-theme', 'dark')
+  }
+}
+export const setDoczAttribute = function (themeTarget) {
+  const themeCache = themeTarget || 'dark';
+  const doczRoot = document.getElementById('___gatsby');
+  // docz document
+  if (doczRoot && themeCache) {
+    doczRoot.setAttribute('data-theme', themeCache)
+  } else {
       //default theme
-      root.setAttribute('data-theme', 'dark')
+    doczRoot.setAttribute('data-theme', 'dark')
   }
 }
 export const requireAll = requireContext => requireContext.keys().map(requireContext)

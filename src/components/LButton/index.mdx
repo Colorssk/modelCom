@@ -1,11 +1,24 @@
-### Things to Do ###
+---
+name: Button
+menu: BasicComponents
+---
+import { Playground } from 'docz'
+import { LButton, setDoczAttribute } from '../index'
 
-At Home
-=======
-*    Mow the cat
-*    Feed the lawn
+# Button
 
-At the Office
-=============
-*    Learn Markdown
-*    Use Big-O notation in a clever way
+## Basic usage
+
+<Playground>
+ {() => {
+   React.useEffect(()=>{
+    setDoczAttribute('dark');
+   }, [])
+    return (
+      <>
+         <LButton onClick={() => { alert("You clicked me"); }}>Click me</LButton>
+      </>
+    )
+  }}
+ 
+</Playground>

@@ -1,3 +1,4 @@
 /// <reference types="react" />
-import "./index.less";
-export default function LButton(props: any): JSX.Element;
+import './themeStyle/index.less';
+declare const LButton: ({ className, type, disabled, tooltip, width, ...restProps }: any) => JSX.Element;
+export default LButton;

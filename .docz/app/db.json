@@ -1,12 +1,11 @@
 {
   "config": {
-    "title": "组件库左上角标题",
+    "title": "component ui",
     "description": "My awesome app using docz",
     "menu": [
-      "快速上手",
-      "业务组件"
+      "BasicComponents"
     ],
-    "version": "0.1.2",
+    "version": "0.1.3",
     "repository": null,
     "native": false,
     "themeConfig": {},
@@ -22,6 +21,8 @@
     {
       "key": "src/components/LButton/index.mdx",
       "value": {
+        "name": "Button",
+        "menu": "BasicComponents",
         "id": "aa8791f9e4ca7b462115e6ed80216629",
         "filepath": "src/components/LButton/index.mdx",
         "fullpath": "C:\\unite-project\\获取template模板\\modelCom\\src\\components\\LButton\\index.mdx",
@@ -29,29 +30,26 @@
         "hidden": false,
         "slug": "src-components-l-button-index",
         "route": "/src-components-l-button-index",
-        "name": "Index",
-        "menu": "",
         "headings": [
           {
-            "slug": "things-to-do",
-            "depth": 3,
-            "value": "Things to Do"
+            "slug": "button",
+            "depth": 1,
+            "value": "Button"
           },
           {
-            "slug": "at-home",
-            "depth": 1,
-            "value": "At Home"
-          },
-          {
-            "slug": "at-the-office",
-            "depth": 1,
-            "value": "At the Office"
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
           }
         ]
       }
     }
   ],
   "props": [
+    {
+      "key": "gatsby-browser.tsx",
+      "value": []
+    },
     {
       "key": "src/App.tsx",
       "value": []
@@ -88,6 +86,14 @@
           "tags": {},
           "filePath": "C:/unite-project/获取template模板/modelCom/src/components/index.tsx",
           "description": "",
+          "displayName": "LButton",
+          "methods": [],
+          "props": {}
+        },
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/components/index.tsx",
+          "description": "",
           "displayName": "ThemeProvider",
           "methods": [],
           "props": {}
@@ -104,11 +110,27 @@
           "tags": {},
           "filePath": "C:/unite-project/获取template模板/modelCom/src/components/index.tsx",
           "description": "",
+          "displayName": "setDoczAttribute",
+          "methods": [],
+          "props": {}
+        },
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/components/index.tsx",
+          "description": "",
           "displayName": "requireAll",
           "methods": [],
           "props": {}
         }
       ]
+    },
+    {
+      "key": "src/pannel/index.tsx",
+      "value": []
+    },
+    {
+      "key": "template/theme/index.ts",
+      "value": []
     },
     {
       "key": "src/theme/themeProvider.tsx",
@@ -118,6 +140,14 @@
           "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
           "description": "",
           "displayName": "setAttribute",
+          "methods": [],
+          "props": {}
+        },
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
+          "description": "",
+          "displayName": "setDoczAttribute",
           "methods": [],
           "props": {}
         },
@@ -138,10 +168,6 @@
           "props": {}
         }
       ]
-    },
-    {
-      "key": "template/theme/index.ts",
-      "value": []
     },
     {
       "key": "src/components/assets/index.tsx",

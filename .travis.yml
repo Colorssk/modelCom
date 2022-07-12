@@ -1,6 +1,9 @@
 language: node_js
 node_js:
 - 14.18.1
+branches:                   
+  only:
+  - feature/ss-ui-from-master
 before_install:
  - npm i -g yarn
 cache:
@@ -17,5 +20,5 @@ deploy:
   api_key:
     secure: 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
   on:
-    tags: true
+    all_branches: true
 
