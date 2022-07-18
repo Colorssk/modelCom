@@ -118,14 +118,6 @@
       "value": []
     },
     {
-      "key": "src/App.tsx",
-      "value": []
-    },
-    {
-      "key": "src/index.tsx",
-      "value": []
-    },
-    {
       "key": "template/index.tsx",
       "value": [
         {
@@ -139,45 +131,16 @@
       ]
     },
     {
-      "key": "template/theme/index.ts",
+      "key": "src/App.tsx",
       "value": []
     },
     {
-      "key": "src/theme/themeProvider.tsx",
-      "value": [
-        {
-          "tags": {},
-          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
-          "description": "",
-          "displayName": "setAttribute",
-          "methods": [],
-          "props": {}
-        },
-        {
-          "tags": {},
-          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
-          "description": "",
-          "displayName": "setDoczAttribute",
-          "methods": [],
-          "props": {}
-        },
-        {
-          "tags": {},
-          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
-          "description": "",
-          "displayName": "requireAll",
-          "methods": [],
-          "props": {}
-        },
-        {
-          "tags": {},
-          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
-          "description": "",
-          "displayName": "themeProvider",
-          "methods": [],
-          "props": {}
-        }
-      ]
+      "key": "src/index.tsx",
+      "value": []
+    },
+    {
+      "key": "template/theme/index.ts",
+      "value": []
     },
     {
       "key": "src/components/index.tsx",
@@ -235,6 +198,43 @@
     {
       "key": "src/pannel/index.tsx",
       "value": []
+    },
+    {
+      "key": "src/theme/themeProvider.tsx",
+      "value": [
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
+          "description": "",
+          "displayName": "setAttribute",
+          "methods": [],
+          "props": {}
+        },
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
+          "description": "",
+          "displayName": "setDoczAttribute",
+          "methods": [],
+          "props": {}
+        },
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
+          "description": "",
+          "displayName": "requireAll",
+          "methods": [],
+          "props": {}
+        },
+        {
+          "tags": {},
+          "filePath": "C:/unite-project/获取template模板/modelCom/src/theme/themeProvider.tsx",
+          "description": "",
+          "displayName": "themeProvider",
+          "methods": [],
+          "props": {}
+        }
+      ]
     },
     {
       "key": "src/components/assets/index.tsx",
