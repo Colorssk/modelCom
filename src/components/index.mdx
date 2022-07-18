@@ -1,0 +1,531 @@
+---
+name: Technical Specification(SPA-PC)
+menu: Introduction
+---
+
+# 项目/代码规范
+
+## PC （常规SPA）
+
+### 项目目录规范：
++ 文档规范
+    * 每个模块下，请给出对应的md文件，批注当前的模块和注意事项
+    * 启动项目的时候，添加对于如何启动项目，配置项目等相关说明 
++ 目录规范
+ * 目录设计规范:
+	 * API：api存放路径 
+	 * Component: 业务组件存放路径(ps: (全局Component:不包含任何的业务逻辑))
+	 * Common: 公共的组件存放路径(ps: 包含业务，可抽离，多出通用的组件)
+	 * Redux: 数据管理存放路径
+	 * Router: 路由存放路径
+	 * Config: 配置文件存放路径(ps: (全局Config：router等可作为全局配置的变量常量等，可存放在这个目录下))
+	 * Util: 工具包存放路径(ps: 例如：fetch/ws/util 等工具文件，（全局Util: 只防止公共的，勿放入于业务耦合度过高的工具）)
+	 * Script: 脚本存放路径(ps: 存放本地运行或者上线打包的脚本或者项目所需执行的脚本(性能监控/统计/SDK等))
+	 * Style: 样式存放路径
+	  ......
+  * 目录命名规范:(均用英文命名，切勿用夹生的拼音或者中式英文命名)
+  	* 模块/(html/js)文件名称：小驼峰命名
+  	* 图片资源名称：xxx[Img/Icon]
+----
+
+### 设计规范：
++ 页面设计规范
+ * 如果有不同分辨率的ui，就根据不同分辨率做设计; 如果没有就更具实际情况，设置宽度上限，和实现各尺寸下页面布局的兼容
++ 样式设计规范
+ * 在全局维护css的全局样式变量， __开发人员在开发过程中严格使用全局的样式（例如：字体（颜色+家族+粗细等）样式, 背景色等变量）__  例如 `@primary_color： black;`
+ * 如果是公共一组样式(重复率高)，也可以放入全局style目录下做维护
+ * 设计之初杜绝样式污染
+ * 样式兼容：兼容IE8及以上、Firefox、chrome、QQ浏览器页面,如无指定，不需要兼容IE6、7,不兼容IE6、7的情况下，需要在页面顶部加入提示，并对.browser-tips使用醒目的颜色标识样式 `<!--[if lt IE 8]><p class="browser-tips">您的浏览器版本过低，请升级浏览器获得更好的体验<p><![endif]-->`
++ 业务组件设计规范:
+ 1：考虑道业务的兼容性class优先级使用高于函数式
+ 2：如果组件不需要状态, 则使用无状态组件
+ 3：性能上比较: 无状态函数 > 有状态函数 > class 组件
+ 4：最小化 props(接口). 不要传递超过要求的 props
+ 5：如果组件内部存在较多条件控制流, 这通常意味着需要对组件进行抽取
+ 6：不要过早优化. 只要求组件在当前需求下可被复用, 然后'随机应变'
+ 7： 通用组件接口规范
+
+| 参数  | 说明  | 类型 |  默认值 |
+| :----: |:-----:| :----:|:--------:|
+| size   | 尺寸 | string | medium |
+| color   | 颜色 | string | '' |
+| disabled  | 是否禁用 | bool | false |
+| className  | 额外的类名 | string | '' |
+| style  | 内联样式 | object | {} |
+
+----
+
+### css规范：
++ 不随意使用import
++ id选择元素视为反模式，少用
++ z-index从0,1,2...递增，不随意赋值很大的值
++ 使用nest selectors 但是注意嵌套层数不能过多（6），如果过多考虑拆分页面或者重构页面
++ 命名使用dash-cased或者camelCased形式，根据项目统一其中一种格式
++ 优先级先破折号后小驼峰
++ 当在规则声明中使用多个选择器时，给每个选择器指定自己的行
++ 嵌套比较多或者复杂的页面，注意注释的编写
+----
+
+### js规范：
++  使用 Number.isNaN 代替 全局的 isNaN
+```javascript
+//  bad
+isNaN('1.2'); // false
+isNaN('1.2.3'); // true
+// good
+Number.isNaN('1.2.3'); // false
+Number.isNaN(Number('1.2.3')); // true
+```
++  使用 const 代替 var 的无脑使用
+```javascript
+// bad
+var a = 1;
+var b = 2;
+// good
+const a = 1;
+const b = 2;
+```
+
++  使用 const 代替 var 的无脑使用（减少重新分配引用的操作,防止bug和难以理解的错误）
+```javascript
+// bad
+var a = 1;
+var b = 2;
+// good
+const a = 1;
+const b = 2;
+```
+
++  使用 let 代替 var 的无脑使用（let是块作用域，而不是像var那样是函数作用域）
+```javascript
+// bad
+var count = 1;
+if (true) {
+  count += 1;
+}
+// good, use the let.
+let count = 1;
+if (true) {
+  count += 1;
+}
+```
+
++  使用Literal Syntax代替new 一个新对象
+```javascript
+// bad
+const item = new Object();
+// good
+const item = {};
+```
+
++  使用Literal Syntax代替new 一个新对象或者数组
+```javascript
+// bad
+const item = new Object();
+// good
+const item = {};
+// bad
+const items = new Array();
+// good
+const items = [];
+```
+
++  在创建具有动态属性名的对象时使用计算属性名
+
+```javascript
+function getKey(k) {
+  return `a key named ${k}`;
+}
+// bad
+const obj = {
+  id: 5,
+  name: 'San Francisco',
+};
+obj[getKey('enabled')] = true;
+// good
+const obj = {
+  id: 5,
+  name: 'San Francisco',
+  [getKey('enabled')]: true,
+};
+```
+
++  只引用无效标识符的属性（改进了语法高亮显示，也更容易被许多JS引擎优化）
+
+```javascript
+// bad
+const bad = {
+  'foo': 3,
+  'bar': 4,
+  'data-blah': 5,
+};
+// good
+const good = {
+  foo: 3,
+  bar: 4,
+  'data-blah': 5,
+};
+```
+
++  直接使用prototype方法，如hasOwnProperty, propertyIsEnumerable和isPrototypeOf 并且勿随意对prototype的方法操作
+```javascript
+// bad
+console.log(object.hasOwnProperty(key));
+// good
+console.log(Object.prototype.hasOwnProperty.call(object, key));
+// best
+const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+console.log(has.call(object, key));
+/* or */
+import has from 'has'; // https://www.npmjs.com/package/has
+console.log(has(object, key));
+```
+
++ 在数组方法回调中使用return语句。 如果函数体由一条语句组成，返回一个没有副作用的表达式，那么省略return是可以的
+```javascript
+// bad
+inbox.filter((msg) => {
+  const { subject, author } = msg;
+  if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+  } else {
+    return false;
+  }
+});
+// good
+inbox.filter((msg) => {
+  const { subject, author } = msg;
+  if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+  }
+  return false;
+});
+```
++ 使用数组解构或者对象结构的方式，让代码更简洁
+```javascript
+const arr = [1, 2, 3, 4];
+// bad
+const first = arr[0];
+const second = arr[1];
+// good
+const [first, second] = arr;
+```
++ 对象的结构优先级高于数组结构
+
+	```javascript
+	// bad
+	function processInput(input) {
+	  // then a miracle occurs
+	  return [left, right, top, bottom];
+	}
+	// the caller needs to think about the order of return data
+	const [left, __, top] = processInput(input);
+	// good
+	function processInput(input) {
+	  // then a miracle occurs
+	  return { left, right, top, bottom };
+	}
+	// the caller selects only the data they need
+	const { left, top } = processInput(input);
+	```
+
++ 构建字符串时，应使用模板字符串而不是连接字符串(模板字符串给你一个可读的，简洁的语法和适当的换行和字符串插值特性)
+```javasscript
+// bad
+function sayHi(name) {
+  return 'How are you, ' + name + '?';
+}
+// bad
+function sayHi(name) {
+  return ['How are you, ', name, '?'].join();
+}
+// good
+function sayHi(name) {
+  return `How are you, ${name}?`;
+}
+```
+
++ 永远不要对字符串使用eval()，会造成更多的bug
+
++ ECMA-262将块定义为语句列表。 函数声明不是语句
+
+	```javascript
+	// bad
+	if (currentUser) {
+	  function test() {
+		console.log('Nope.');
+	  }
+	}
+	// good
+	let test;
+	if (currentUser) {
+	  test = () => {
+		console.log('Yup.');
+	  };
+	}
+```
+
++ 不要给参数命名为arguments
+```javascript
+// bad
+function foo(name, options, arguments) {
+  // ...
+}
+// good
+function foo(name, options, args) {
+  // ...
+}
+```
+
++ 拓展符代替直接使用arguments
+```javascript
+// bad
+function concatenateAll() {
+  const args = Array.prototype.slice.call(arguments);
+  return args.join('');
+}
+// good
+function concatenateAll(...args) {
+  return args.join('');
+}
+```
+
++ 使用默认参数语法，而不是改变函数参数
+```javascript
+// really bad
+function handleThings(opts) {
+  opts = opts || {};
+  // ...
+}
+// still bad
+function handleThings(opts) {
+  if (opts === void 0) {
+    opts = {};
+  }
+  // ...
+}
+// good
+function handleThings(opts = {}) {
+  // ...
+}
+```
+
++ 永远不要使用Function构造函数来创建新函数(以类似于eval()的方式创建函数来计算字符串, 会有漏洞)
+
++ 避免将箭头函数语法(=>)与比较操作符(<=，>=)混淆(确保代码可读)
+
+```javascript
+	// bad
+const itemHeight = (item) => item.height <= 256 ? item.largeSize : item.smallSize;
+// bad
+const itemHeight = (item) => item.height >= 256 ? item.largeSize : item.smallSize;
+// good
+const itemHeight = (item) => (item.height <= 256 ? item.largeSize : item.smallSize);
+// good
+const itemHeight = (item) => {
+  const { height, largeSize, smallSize } = item;
+  return height <= 256 ? largeSize : smallSize;
+};
+```
++ 总是使用类。 避免直接操纵原型(针对封装的工具类：类语法更简洁，也更容易阅读)
+
+```javascript
+// bad
+function Queue(contents = []) {
+  this.queue = [...contents];
+}
+Queue.prototype.pop = function () {
+  const value = this.queue[0];
+  this.queue.splice(0, 1);
+  return value;
+};
+// good
+class Queue {
+  constructor(contents = []) {
+    this.queue = [...contents];
+  }
+  pop() {
+    const value = this.queue[0];
+    this.queue.splice(0, 1);
+    return value;
+  }
+}
+```
+
++ 使用=== 和 !== 代替 == and !=
+
++ 避免不必要的三元语句
+```javascript
+	// bad
+const foo = a ? a : b;
+const bar = c ? true : false;
+const baz = c ? false : true
+// good
+const foo = a || b;
+const bar = !!c;
+const baz = !c;
+```
+
+
+
+----
+----
+
+### react规范：
++ 如果你有内部状态和/或引用，最好是类扩展React 代替React.createClass
+
+```javascript
+	// bad
+const Listing = React.createClass({
+  // ...
+  render() {
+    return <div>{this.state.hello}</div>;
+  }
+});
+// good
+class Listing extends React.Component {
+  // ...
+  render() {
+    return <div>{this.state.hello}</div>;
+  }
+}
+```
+
++ 如果state或者refs，使用函数式代替class
+
++ 高阶组件命名:使用高阶组件名称和传入组件名称的组合作为生成组件的displayName（会相对友好点：三方组件或者错误消息）
+
+```javascript
+	// bad
+class Listing extends React.Component {
+  render() {
+    return <div>{this.props.hello}</div>;
+  }
+}
+// bad(不鼓励依赖函数名推断 )
+const Listing = ({ hello }) => (
+  <div>{hello}</div>
+);
+// good
+function Listing({ hello }) {
+  return <div>{hello}</div>;
+}
+```
+
++ 对React组件使用.jsx扩展
+
+```javascript
+// bad
+export default function withFoo(WrappedComponent) {
+  return function WithFoo(props) {
+    return <WrappedComponent {...props} foo />;
+  }
+}
+// good
+export default function withFoo(WrappedComponent) {
+  function WithFoo(props) {
+    return <WrappedComponent {...props} foo />;
+  }
+  const wrappedComponentName = WrappedComponent.displayName
+    || WrappedComponent.name
+    || 'Component';
+  WithFoo.displayName = `withFoo(${wrappedComponentName})`;
+  return WithFoo;
+}
+```
+
++ 组件参数避免DOM component prop names， 例如 style, className...
+
++ 不要使用displayName来命名组件。 相反，应该通过引用来命名组件
+
+```javascript
+	// bad
+export default React.createClass({
+  displayName: 'ReservationCard',
+  // stuff goes here
+});
+// good
+export default class ReservationCard extends React.Component {
+}
+```
+
++ 始终为所有非必需的参数定义显式的defaultProps
+
+```javascript
+	// bad
+function SFC({ foo, bar, children }) {
+  return <div>{foo}{bar}{children}</div>;
+}
+SFC.propTypes = {
+  foo: PropTypes.number.isRequired,
+  bar: PropTypes.string,
+  children: PropTypes.node,
+};
+// good
+function SFC({ foo, bar, children }) {
+  return <div>{foo}{bar}{children}</div>;
+}
+SFC.propTypes = {
+  foo: PropTypes.number.isRequired,
+  bar: PropTypes.string,
+  children: PropTypes.node,
+};
+SFC.defaultProps = {
+  bar: '',
+  children: null,
+};
+```
++ 总是使用ref callbacks
+
+```javascript
+// bad
+<Foo
+  ref="myRef"
+/>
+// good
+<Foo
+  ref={(ref) => { this.myRef = ref; }}
+/>
+```
+
+### 格式规范：
+ + 默认缩进2个空格
+ + 单引号
+ + 分号
+ + 数组/对象元素开始或结尾的对象的花括号中有空格
+ + 数组括号内需要一个或多个空格或换行符
+ + 允许在空行上结尾空白
+ + 允许评论块中的尾部空白
+ + 强制连续空行的最大数量 1
+ + 在文件结尾处强制执行最大数量的连续空行 0
+ + 在文件的开头强制执行最大数量的连续空行 0
+
+----
+
+### 代码提交规范规范：
+ 
+ 仓库代码提交规范:  [时间]20211010 | [版本] feature/3.41.1 | [标识] : [日志] (or use the util in @glen-build directly)
+ 例子： 202211010|feature/3.41.1|fix: bug fix example
++ feat：新功能（feature）
++ fix：修补bug
++ docs：文档（documentation）
++ style： 格式（不影响代码运行的变动）
++ refactor：重构（即不是新增功能，也不是修改bug的代码变动）
++ test：增加测试
++ chore：构建过程或辅助工具的变动
++ revert: 代码回滚
++ build: 影响系统构建或者外部依赖的更改（例如：glup，npm, broccoli）
++ ci: 对CI配置文件和脚本的修改
++ perf:性能提升
+ 
+----
+
+### 业务流程规范：
++ 仓库代码需要fork之后管理在自己名下， 对应的自研辅助工具 @glen-build git
++ jiara: 确认需求
++ confluence： 获取和查看文档
++ wechat/飞书: 需求交流和交互
++ 提测： 
+    + merge request -> 提交项目负责人走code view
+    + 上线 -> 测试技术群@ 到技术人员， 通知测试环境或者语法环境可上线
+    + 开发jiara申请提测，对应连接 粘贴到上线群，主管审核确认，运维负责上线

@@ -39,7 +39,7 @@ const config = {
         themesDir: 'theme',
         mdxExtensions: ['.md', '.mdx'],
         docgenConfig: {},
-        menu: ['BasicComponents'],
+        menu: ['Introduction', 'BasicComponents'],
         mdPlugins: [],
         hastPlugins: [],
         ignore: [],
@@ -68,7 +68,7 @@ const config = {
         title: 'component ui',
         description: 'My awesome app using docz',
         host: 'localhost',
-        port: 3001,
+        port: 3000,
         p: 3000,
         separator: '-',
         paths: {

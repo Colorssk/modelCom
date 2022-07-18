@@ -144,7 +144,7 @@
     ]
   },
   "peerDependencies": {
-    "react": "^3.0.0"
+    "react": "^18.1.0"
   },
   "browserslist": {
     "production": [
